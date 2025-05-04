@@ -41,3 +41,6 @@ build/
 
 ### target folder ###
 target
+target/
+target/classes
+target/test-classes
