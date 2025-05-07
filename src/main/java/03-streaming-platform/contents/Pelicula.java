@@ -1,0 +1,47 @@
+
+public class Pelicula extends ContenidoMultimedia implements ContenidoDescargable {
+    private String director;         // Nombre del director;
+    private ResolutionType resolucion;       // Resolución del video (ej. "4K", "HD").
+
+    public Pelicula(String titulo, String duracion, String genero, String director, ResolutionType resolucion) {
+        super(titulo, duracion, genero);
+        this.director = director;
+        this.resolucion = resolucion;
+    }
+
+    public Pelicula(String titulo, String duracion, String genero, int vecesReproducido, boolean esFavorito, String director, ResolutionType resolucion){
+        super(titulo, duracion, genero, vecesReproducido, esFavorito);
+        this.director = director;
+        this.resolucion = resolucion;
+    }
+
+    // Implementacion de interface
+    public double descargar() {
+        double size = 5000;
+
+        if (resolucion == resolucion.HD)
+            size = 2000;
+
+        return size;
+    }
+
+    public boolean verificarEspacioRequerido(double espacioDisponible) {
+        double size = descargar();
+
+        if (espacioDisponible < size)
+            return false;
+
+        return true;
+    }
+
+
+    // Implementacion de metodo abstracto
+    protected double calcularPuntuacion() {
+        int i = 0;
+
+        if (resolucion == ResolutionType.HD)
+            i = 10;
+
+        return (obtenerVecesReproducido() * 0.5 + i);
+    }
+}
