@@ -13,13 +13,39 @@ public class User {
         listaFavoritos = new ArrayList<>();
     }
 
-    public void agregarFavorito(ContenidoMultimedia contenido) {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getEspacioDisponible() {
+        return espacioDisponible;
+    }
+
+    public void setEspacioDisponible(double espacioDisponible) {
+        this.espacioDisponible = espacioDisponible;
+    }
+
+    public void agregarFavorito(ContenidoReproducible contenido) {
         listaFavoritos.add(contenido);
         contenido.setEsFavorito(true);
     }
 
     public void descargarContenido(ContenidoDescargable contenido){
-        System.out.println("Descargado...");
+        if (!(contenido instanceof ContenidoDescargable))
+            return;
+
+        boolean sePuedeDescargar = contenido.verificarEspacioRequerido(espacioDisponible);
+
+        if (sePuedeDescargar)
+            setEspacioDisponible(espacioDisponible - ((ContenidoDescargable) contenido).descargar());
+    }
+
+    public void reproducirContenido(ContenidoReproducible contenido){
+        contenido.reproducir();
     }
 
 }

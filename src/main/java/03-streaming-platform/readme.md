@@ -82,3 +82,33 @@ El sistema simula una plataforma de streaming (similar a Netflix o Spotify) que 
        - Contenido más popolare.
        - Número total de reproducciones en la plataforma.
        - Promedio de puntuaciones de todos los contenidos.
+
+## Tareas a Realizar
+
+1. Implementación:
+   - Implemente el sistema en un lenguaje de programación orientado a objetos (Java, Python, C#, etc.). 
+   - Asegúrese de aplicar:
+     - Encapsulamiento: Atributos privados con getters y setters. 
+     - Herencia: Uso de clases abstractas y especialización en clases concretas. 
+     - Polimorfismo: Manejo de diferentes tipos de contenido a través de interfaces y clases base. 
+     - Manejo de excepciones: Uso de try-catch para gestionar errores. 
+     - Modularidad: Diseño que permita agregar nuevos tipos de contenido sin modificar el código existente. 
+2. Programa Principal:
+   - Cree una clase principal que simule el funcionamiento del sistema con el siguiente escenario:
+     - Instancie una plataforma de streaming llamada "StreamX". 
+     - Cree al menos dos usuarios con diferentes espacios disponibles (ej. Ana con 1000 MB, Bob con 6000 MB). 
+     - Añada al menos tres contenidos:
+       - Una película (ej. "Inception", género "Ciencia Ficción", 148 min, 4K). 
+       - Una serie (ej. "Stranger Things", género "Ciencia Ficción", 3 temporadas, 8 episodios por temporada). 
+       - Un audiolibro (ej. "Dune", género "Ficción", 500 MB). 
+     - Simule interacciones:
+       - Ana intenta descargar el audiolibro (debe lanzar EspacioInsuficienteException). 
+       - Bob descarga la película y el audiolibro, reproduce la serie dos veces y marca la película como favorita. 
+     - Muestre un reporte con:
+       - El contenido más popular. 
+       - Los contenidos del género "Ciencia Ficción". 
+       - El resumen de la plataforma (total de reproducciones y promedio de puntuaciones). 
+3. Entregables:
+   - Código fuente completo, organizado en paquetes o módulos. 
+   - Documentación breve (en comentarios o un archivo aparte) que explique el diseño y las decisiones tomadas. 
+   - Ejemplo de salida del programa principal que muestre el escenario descrito.
