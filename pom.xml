@@ -20,9 +20,9 @@
 
     <!-- List of modules within this project -->
     <modules>
-        <module>src/main/java/com/github/badjavii/vm01_LibraryManager</module>
-        <module>src/main/java/com/github/badjavii/vm02_KataTennis</module>
-        <module>src/main/java/com/github/badjavii/vm03_StreamingPlatform</module>
+        <module>vm01_LibraryManager</module>
+        <module>vm02_KataTennis</module>
+        <module>vm03_StreamingPlatform</module>
     </modules>
 
     <!-- Properties for Maven build process -->
