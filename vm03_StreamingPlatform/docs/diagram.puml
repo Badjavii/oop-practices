@@ -1,0 +1,109 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+abstract class  ContenidoMultimedia{
+-titulo: String
+-genero: String
+-duracion: int
+-vecesReproducido: int
+-esFavorito: boolean
+
++reproducir(): void
++pausar(): void
++obtenerDuracion(): int
++obtenerTitulo(): String
++obtenerGenero(): String
++esFavorito(): boolean
+#registrarInteraccion(): void
+{abstract} +calcularPuntuacion(): double
+}
+
+note top of ContenidoMultimedia: This is an anstract class
+
+interface ContenidoReproducible {
++reproducir(): void
++pausar(): void
++obtenerDuracion(): int
++obtenerTitulo(): String
++obtenerGenero(): String
++esFavorito(): boolean
+}
+
+note left of ContenidoReproducible: This is an interface
+
+interface ContenidoDescargable{
++descargar(): double
++verificarEspacioRequerido(): boolean
+}
+
+note top of ContenidoDescargable: This is an interface
+
+class Pelicula{
+-director: String
+
++calcularPuntuacion(): double
++descargar(): double
++verificarEspacioRequerido(): boolean
+}
+
+class Serie{
+-temporadas: int
+-episodiosPorTemporada: int
+
++calcularPuntuacion(): double
+}
+
+class Audiolibro{
+-narrador: String
+-tamanoMB: double
+
++calcularPuntuacion(): double
++descargar(): double
++verificarEspacioRequerido(): boolean
+}
+
+class Usuario{
+-nombre: String
+-espacioDisponible: double
+
++agregarFavorito(ContenidoReproducible): void
++descargarContenido(ContenidoDescargable): void
++reproducirContenido(ContenidoReproducible): void
+}
+
+
+class PlataformaStreaming{
+-nombre: String
+
++agregarContenido(ContenidoReproducible): void
++agregarUsuario(Usuario): void
++obtenerContenidoMasPopular(): ContenidoReproducible
++buscarPorGenero(String genero): ArrayList<ContenidoReproducible>
++generarReporte(): void
+}
+
+enum ResolutionType{
+    _4K
+    HD
+}
+
+ContenidoReproducible <|.. ContenidoMultimedia
+
+
+ContenidoMultimedia <|-- Pelicula
+ContenidoDescargable <|.. Pelicula
+
+ContenidoMultimedia <|-- Serie
+
+ContenidoMultimedia <|-- Audiolibro
+ContenidoDescargable <|.. Audiolibro
+
+ContenidoReproducible "0..*" <-- Usuario : -listaFavoritos
+
+ContenidoMultimedia "1..*" --o PlataformaStreaming: -listaContenidos
+Usuario "1..*" --o PlataformaStreaming: -listaUsuarios
+
+ResolutionType "1" -- Pelicula: -resolucion
+
+@enduml
