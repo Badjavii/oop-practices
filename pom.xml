@@ -23,6 +23,7 @@
         <module>vm01_LibraryManager</module>
         <module>vm02_KataTennis</module>
         <module>vm03_StreamingPlatform</module>
+        <module>vm04_PetWorld</module>
     </modules>
 
     <!-- Properties for Maven build process -->
