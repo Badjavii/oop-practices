@@ -1,0 +1,75 @@
+@startuml
+!theme materia-outline
+
+class DetalleFactura{
+    -cantidad: int
+    -impuesto: double
+    -precio: double
+
+
+}
+
+class Factura{
+    -fecha: LocalDate
+    -montoTotal: double
+}
+
+class Cliente{
+    -id: int
+    -nombre: String
+    -correo: String
+    -telefono: int
+}
+
+enum TipoCliente{
+    REGULAR
+    PREMIUM
+}
+
+class Producto{
+    -id: int
+    -nombre: String
+    -precioUnitario: double
+    -cantidadStock: int
+
+    +verificarDisponibilidad(): boolean
+}
+
+class Alimento{
+    -fechaVencimiento: LocalDate
+}
+
+class Accesorio{
+
+}
+
+interface ProductoVendible{
+    +verificarDisponibilidad(): boolean
+    +reducirStock(cantidad: int): int
+    +calcularDescuento(cliente: Cliente): double
+}
+
+class Material{
+    -tipo String
+    -peso: double
+}
+
+
+Factura "1..*" *-- "1" DetalleFactura: -detalle: DetalleFactura
+
+DetalleFactura "1..*" o-- "1" Producto: -producto: Producto
+
+Producto <|-- Alimento
+Producto <|-- Accesorio
+
+Accesorio "0..*" o-- Material: -material: Material
+
+Factura "0..*" o-- Cliente: cliente: Cliente
+
+Cliente <-- ProductoVendible
+
+ProductoVendible <|.. Producto
+
+Cliente "0..*" *-- "1" TipoCliente: -tipoCliente: TipoCliente
+
+@enduml
