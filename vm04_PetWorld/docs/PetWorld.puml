@@ -1,5 +1,4 @@
 @startuml
-!theme materia-outline
 
 class DetalleFactura{
     -cantidad: int
@@ -26,13 +25,12 @@ enum TipoCliente{
     PREMIUM
 }
 
-class Producto{
+abstract class Producto{
     -id: int
     -nombre: String
     -precioUnitario: double
     -cantidadStock: int
 
-    +verificarDisponibilidad(): boolean
 }
 
 class Alimento{
@@ -54,6 +52,15 @@ class Material{
     -peso: double
 }
 
+enum TipoNotificaciones{
+    WHATSAPP
+    CORREO
+}
+
+class Notificaciones{
+    -mensaje: String
+}
+
 
 Factura "1..*" *-- "1" DetalleFactura: -detalle: DetalleFactura
 
@@ -66,10 +73,15 @@ Accesorio "0..*" o-- Material: -material: Material
 
 Factura "0..*" o-- Cliente: cliente: Cliente
 
-Cliente <-- ProductoVendible
+Cliente <.. ProductoVendible
 
 ProductoVendible <|.. Producto
 
-Cliente "0..*" *-- "1" TipoCliente: -tipoCliente: TipoCliente
+Cliente "0..*" o-- "1" TipoCliente: -tipoCliente: TipoCliente
+
+Notificaciones "0..*" o-- "1" TipoNotificaciones: -tipoNotificaciones: TipoNotificaciones
+DetalleFactura "1..*" *--  "1" Notificaciones: -FacturaAsociado: DetalleFactura
 
 @enduml
+
+
