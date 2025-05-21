@@ -4,8 +4,6 @@ class DetalleFactura{
     -cantidad: int
     -impuesto: double
     -precio: double
-
-
 }
 
 class Factura{
