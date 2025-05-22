@@ -14,8 +14,6 @@ public class NotificacionesCorreo extends Notificaciones{
     }
 
     public void enviarNotificaciones(Cliente cliente) {
-        showMessage();
-        System.out.println(cliente);
     }
 
 

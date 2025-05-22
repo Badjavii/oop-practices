@@ -2,6 +2,7 @@ package com.github.badjavii.p05_Factura;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import com.github.badjavii.p05_Factura.DetalleFactura;
+import java.util.Random;
 import com.github.badjavii.p02_Products.Producto;
 
 public class Factura {
@@ -32,7 +33,10 @@ public class Factura {
     }
 
     public void addDetalles(ArrayList<Producto> listaProductos) {
+        Random randomNumbers = new Random();
+        double impuesto = randomNumbers.nextDouble();
         detalles.add(new DetalleFactura());
+        setMontoTotal();
     }
 
     public void mostrarFactura() {

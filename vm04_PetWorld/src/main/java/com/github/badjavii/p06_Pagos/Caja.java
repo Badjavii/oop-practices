@@ -3,7 +3,9 @@ import com.github.badjavii.p01_Interfaces.UICaja;
 import java.util.ArrayList;
 import com.github.badjavii.p02_Products.Producto;
 import com.github.badjavii.p03_Cliente.Cliente;
-import com.github.badjavii.p05_Factura.
+import com.github.badjavii.p04_Notificaciones.Notificaciones;
+import com.github.badjavii.p04_Notificaciones.NotificacionesWhatsapp;
+import com.github.badjavii.p04_Notificaciones.NotificacionesCorreo;
 
 public class Caja implements UICaja{
     private Cliente cliente;
@@ -22,7 +24,17 @@ public class Caja implements UICaja{
         listaProductos.remove(producto);
     }
 
-    public void procesarCompra() {
-
+    public void procesarCompra(String metodoNoti) {
+        Notificaciones notificacion;
+    
+        if (metodoNoti.toUpperCase() == "WHATSAPP")
+            notificacion = new NotificacionesWhatsapp;
+        else if (metodoNoti.toUpperCase() == "CORREO")
+            notificacion = new NotificacionesCorreo;
+        else 
+            throw new IllegalArgumentException("El tipo de notificacion no fue aceptado");
+        
+        
+    
     }
 }
