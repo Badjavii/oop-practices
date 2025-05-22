@@ -55,8 +55,22 @@ enum TipoNotificaciones{
     CORREO
 }
 
-class Notificaciones{
+interface UINotificaciones{
+    +enviarNotificacion(mensaje: String, cliente: Cliente): void
+}
+
+abstract class Notificaciones{
     -mensaje: String
+
+    +{abstract}enviarNotificacion(mensaje: String, cliente: Cliente): void
+}
+
+class NotificacionesWhatsapp{
+
+}
+
+class NotificacionesCorreo{
+
 }
 
 
@@ -77,8 +91,12 @@ ProductoVendible <|.. Producto
 
 Cliente "0..*" o-- "1" TipoCliente: -tipoCliente: TipoCliente
 
-Notificaciones "0..*" o-- "1" TipoNotificaciones: -tipoNotificaciones: TipoNotificaciones
-DetalleFactura "1..*" *--  "1" Notificaciones: -FacturaAsociado: DetalleFactura
+Cliente <.. UINotificaciones
+
+UINotificaciones <|.. Notificaciones
+Notificaciones <|-- NotificacionesWhatsapp
+Notificaciones <|-- NotificacionesCorreo
+Notificaciones "1..*" *-- "1" Factura: -FacturaAsociada: Factura
 
 @enduml
 

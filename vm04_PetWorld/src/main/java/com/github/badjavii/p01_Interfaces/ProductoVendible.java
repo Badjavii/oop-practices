@@ -1,6 +1,7 @@
 package com.github.badjavii.p01_Interfaces;
+import com.github.badjavii.p03_Cliente.Cliente;
 
-interface ProductoVendible {
+public interface ProductoVendible {
     public boolean verificarDisponible();
 
     public int reducirStock(int cantidad);

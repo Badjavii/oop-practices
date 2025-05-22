@@ -1,6 +1,7 @@
 package com.github.badjavii.p02_Products;
 import com.github.badjavii.p01_Interfaces.ProductoVendible;
 import com.github.badjavii.p03_Cliente.Cliente;
+import com.github.badjavii.p03_Cliente.TipoCliente;
 
 public abstract class Producto implements ProductoVendible {
     private int id;
@@ -48,8 +49,7 @@ public abstract class Producto implements ProductoVendible {
     }
 
     public boolean verificarDisponible(){
-        if (getCantidadStock() == 0) return false;
-        return true;
+        return getCantidadStock() != 0;
     }
 
     public int reducirStock(int cantidad){
@@ -63,7 +63,7 @@ public abstract class Producto implements ProductoVendible {
         double descuento = 0;
 
         if (cliente.getTipoCliente() == TipoCliente.REGULAR){
-            descuento = precioUnitario * cantidadStock;
+            descuento = precioUnitario * (cantidadStock + 5);
         } else {
             descuento = precioUnitario * cantidadStock;
         }

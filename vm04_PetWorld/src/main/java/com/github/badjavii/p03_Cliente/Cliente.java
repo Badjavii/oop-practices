@@ -1,6 +1,6 @@
 package com.github.badjavii.p03_Cliente;
 
-class Cliente {
+public class Cliente {
     private int id;
     private String nombre;
     private String correo;
