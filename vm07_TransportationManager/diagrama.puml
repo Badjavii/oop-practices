@@ -1,0 +1,54 @@
+@startuml
+
+'# Diagrama de Clase - TransportationManager
+
+'## CLASES
+
+'Definicion de VEHICULOS
+class Vehiculo {
+    -matricula: String
+    -modelo: String
+    -marca: String
+    -capacidad: double
+}
+
+enum Estado {
+    DISPONIBLE
+    EN_SERVICIO
+    FUERA_SERVICIO
+}
+
+'Tipos de VEHICULOS
+class Camioneta {
+
+}
+
+class Furgoneta {
+
+}
+
+class Motocicleta {
+
+}
+
+'Definicion de CONDUCTORES
+class Conductor {
+    -nombre: String
+    -id: String
+    -licencia: String
+    -direccion: String
+}
+
+'## RELACIONES
+
+'Definicion de relacion *Composicion* Vehiculo-Estado
+Vehiculo "0..*" *-- "1" Estado: -estado: Estado
+'Definicion de relacion *Herencia* Vehiculo-Camioneta
+Vehiculo <|-- Camioneta 
+'Definicion de relacion *Herencia* Vehiculo-Furgoneta
+Vehiculo <|-- Furgoneta 
+'Definicion de relacion *Herencia* Vehiculo-Motocicleta
+Vehiculo <|-- Motocicleta 
+
+
+@enduml

@@ -37,7 +37,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Main-Class>StreamingPlatformMain</Main-Class> <!-- Change "MainClassName" to the actual class -->
+                            <main.java.Main-Class>StreamingPlatformMain</main.java.Main-Class> <!-- Change "MainClassName" to the actual class -->
                         </manifestEntries>
                     </archive>
                 </configuration>

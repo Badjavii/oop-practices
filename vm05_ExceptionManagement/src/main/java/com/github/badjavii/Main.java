@@ -8,7 +8,5 @@ public class Main {
         } catch (TemperaturaNoValidaException myException) {
             myException.printStackTrace();
         }
-
-
     }
 }

@@ -37,7 +37,7 @@
                 <configuration>
                     <archive>
                         <manifestEntries>
-                            <Main-Class>LibraryManagerMain</Main-Class> <!-- Change "MainClassName" to the actual class -->
+                            <main.java.Main-Class>LibraryManagerMain</main.java.Main-Class> <!-- Change "MainClassName" to the actual class -->
                         </manifestEntries>
                     </archive>
                 </configuration>

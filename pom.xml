@@ -26,6 +26,7 @@
         <module>vm04_PetWorld</module>
         <module>vm05_ExceptionManagement</module>
         <module>vm06_ejempo</module>
+        <module>vm06_TransportationManager</module>
     </modules>
 
     <!-- Properties for Maven build process -->
