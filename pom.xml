@@ -24,6 +24,8 @@
         <module>vm02_KataTennis</module>
         <module>vm03_StreamingPlatform</module>
         <module>vm04_PetWorld</module>
+        <module>vm05_ExceptionManagement</module>
+        <module>vm06_ejempo</module>
     </modules>
 
     <!-- Properties for Maven build process -->
