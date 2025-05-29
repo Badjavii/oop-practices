@@ -34,9 +34,46 @@ class Motocicleta {
 'Definicion de CONDUCTORES
 class Conductor {
     -nombre: String
-    -id: String
+    -id: int
     -licencia: String
     -direccion: String
+}
+
+class Empleado {
+    
+}
+
+class Contratista {
+
+}
+
+'Definicion de RUTAS
+class Ruta {
+    -codigo: int
+    -descripcion: String
+    -distancia: double
+    -duracion: float
+}
+
+class RutaNacional {
+
+}
+
+class RutaInternacional {
+
+}
+
+'Definicion de ENVIOS
+class Envio {
+
+}
+
+class EnvioRegular {
+
+}
+
+class EnvioUrgente {
+
 }
 
 '## RELACIONES
@@ -50,5 +87,22 @@ Vehiculo <|-- Furgoneta
 'Definicion de relacion *Herencia* Vehiculo-Motocicleta
 Vehiculo <|-- Motocicleta 
 
+'Definicion de relacion *Agregacion* Vehiculo-Conductor
+Vehiculo "0..*" o-- "1" Conductor: -conductor: Conductor
+
+'Definicion de relacion *Herencia* Conductor-Empleado
+Conductor <|-- Empleado
+'Definicion de relacion *Herencia* Conductor-Contratista
+Conductor <|-- Contratista
+
+'Definicion de relacion *Herencia* Ruta-RutaNacional
+Ruta <|-- RutaNacional
+'Definicion de relacion *Herencia* Ruta-RutaInternacional
+Ruta <|-- RutaInternacional 
+
+'Definicion de relacion *Herencia* Ruta-RutaNacional
+Envio <|-- EnvioRegular
+'Definicion de relacion *Herencia* Ruta-RutaInternacional
+Envio <|-- EnvioUrgente
 
 @enduml
