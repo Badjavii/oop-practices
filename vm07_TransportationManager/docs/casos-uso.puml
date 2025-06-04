@@ -1,0 +1,16 @@
+@startuml
+top to bottom direction
+
+:Proveedor:
+:Conductor:
+:Operador Inventario: as Operador
+:Administrador:
+:Gerente:
+
+Operador --> (Registrar un nuevo producto)
+Operador --> (Consultar productos)
+Administrador --> (Registrar un nuevo producto)
+Administrador --> (Registrar un nuevo proveedor)
+Gerente --> (Registrar un nuevo proveedor)
+
+@enduml
