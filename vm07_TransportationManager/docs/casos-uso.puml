@@ -1,16 +1,21 @@
-@startuml
-top to bottom direction
+@startuml 
+:Operador Inventario: as Operador
+Operador --> (Registrar un nuevo producto)
+Operador --> (Consultar productos)
+Operador --> (Actualizar el estado de una orden de compra)
+Operador --> (Consultar Inventario)
+Operador --> (Modificar Producto)
+Operador --> (Eliminar Producto)
+
+:Administrador:
+Administrador --> (Registrar un nuevo producto)
+Administrador --> (Registrar un nuevo proveedor)
+
+Gerente --> (Registrar un nuevo proveedor)
+Gerente --> (Crear una orden de compra)
+Gerente --> (Asignar productos)
 
 :Proveedor:
 :Conductor:
-:Operador Inventario: as Operador
-:Administrador:
-:Gerente:
-
-Operador --> (Registrar un nuevo producto)
-Operador --> (Consultar productos)
-Administrador --> (Registrar un nuevo producto)
-Administrador --> (Registrar un nuevo proveedor)
-Gerente --> (Registrar un nuevo proveedor)
 
 @enduml

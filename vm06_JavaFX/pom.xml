@@ -14,7 +14,7 @@
     </parent>
 
     <!-- Unique identifier for this specific module -->
-    <artifactId>vm05_ExcepyionManagement</artifactId> <!-- Example: vm01_LibraryManager -->
+    <artifactId>vm06_JavaFX</artifactId> <!-- Example: vm01_LibraryManager -->
 
     <!-- Java version and encoding settings for this module -->
     <properties>

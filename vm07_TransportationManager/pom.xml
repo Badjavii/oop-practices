@@ -1,14 +1,66 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!-- Standard structure for each module (vmXX_ModuleName) -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Defines the model version used for this POM file -->
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- Links this module to the parent project (oop-practices) -->
     <parent>
         <groupId>com.github.badjavii</groupId>
-        <artifactId>oop-practices</artifactId>
+        <artifactId>opp-practices</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>vm06_TransportationManager</artifactId>
-    <packaging>jar</packaging>
+
+    <!-- Unique identifier for this specific module -->
+    <artifactId>vm06_TransportationManager</artifactId> <!-- Example: vm01_LibraryManager -->
+
+    <!-- Java version and encoding settings for this module -->
     <properties>
-        <exec.mainClass>com.github.badjavii.vm06_transportationmanager.Vm06_TransportationManager</exec.mainClass>
+        <maven.compiler.source>20</maven.compiler.source>  <!-- Java version -->
+        <maven.compiler.target>20</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>  <!-- Encoding type -->
     </properties>
+
+    <!-- Build configurations -->
+    <build>
+        <!-- Specifies where the Java source code is located -->
+        <sourceDirectory>src/main/java</sourceDirectory>
+
+        <!-- Defines the main class for the module's execution -->
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <main.java.Main-Class>TransportationManagerMain</main.java.Main-Class> <!-- Change "MainClassName" to the actual class -->
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>24</source>
+                    <target>24</target>
+                    <compilerArgs>--enable-preview</compilerArgs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Dependencies required for this module -->
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+
 </project>
